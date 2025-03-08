@@ -88,8 +88,10 @@ class Validate:
   TODO: Implement IP validation. Consider white-list, regex.
   '''
   @staticmethod
-  def ip(input) -> bool:
-    return True
+  def ip(input: str) -> bool:
+    if re.match("\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b", input):
+      return True
+    return False
   
   '''
   TODO: Implement MAC address validation. Consider white-list, regex.
@@ -97,12 +99,16 @@ class Validate:
   allow : - and whitespaces
   '''
   @staticmethod
-  def mac(input) -> bool:
-    return True
+  def mac(input: str) -> bool:
+    if re.match("^([0-9A-Fa-f]{2}[:-]?){5}([0-9A-Fa-f]{2})$", input):
+      return True
+    return False
   
   '''
   TODO: Implement md5 validation. Consider white-list, regex.
   '''
   @staticmethod
-  def md5(input) -> bool:
-    return True
+  def md5(input: str) -> bool:
+    if re.match("^[a-fA-F0-9]{32}$", input):
+      return True
+    return False
